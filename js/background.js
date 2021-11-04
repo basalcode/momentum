@@ -7,6 +7,8 @@ async function getRandomImage() {
 async function createImageElement() {
     const backgroundImage = document.createElement("img")
     backgroundImage.src = await getRandomImage();
+    backgroundImage.alt = "배경 화면";
+    backgroundImage.className = "background";
 
     document.body.appendChild(backgroundImage);
 }
