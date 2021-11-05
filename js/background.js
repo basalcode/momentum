@@ -1,12 +1,27 @@
-async function getRandomImage() {
-    const { url } = await fetch("https://picsum.photos/2400/1600")
+const images = [
+    "./image/forestAndSea.jpg",
+    "./image/iceSea.jpg",
+    "./image/island.jpg",
+    "./image/mountain.jpg",
+    "./image/sea.jpg",
+    "./image/snowMountain.jpg",
+    "./image/volcano.jpg"
+];
 
-    return url;
+function getRandomImage() {
+    const imageLength = images.length;
+    const randomIndex = Math.floor(Math.random() * imageLength);
+
+    const path = images[randomIndex];
+
+    console.log('path', path);
+
+    return path;
 }
 
-async function createImageElement() {
+function createImageElement() {
     const backgroundImage = document.createElement("img")
-    backgroundImage.src = await getRandomImage();
+    backgroundImage.src = getRandomImage();
     backgroundImage.alt = "배경 화면";
     backgroundImage.className = "background";
 
